@@ -7,6 +7,7 @@ pipeline {
     }
     environment {
        def org_params = "${$org_params}"
+       def cicd_project = "${cicd_project}"
 
         
   }
@@ -16,6 +17,7 @@ pipeline {
             steps {
                 sh '''
                 echo \"$org_params\"
+                echo \"$cicd_project\"
                 '''
             }
         }
