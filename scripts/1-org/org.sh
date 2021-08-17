@@ -27,7 +27,7 @@ gcloud source repos clone gcp-policies --project=$CLOUD_BUILD_PROJECT_ID
 cd gcp-policies
 
 echo Copying policy folder to current directory
-POLICY_FOLDER=../terraform-example-foundation/policy-library/
+POLICY_FOLDER=../terraform-example-foundation/policy-library/.
 [ -d $POLICY_FOLDER ] && { echo "Copying policy folder to current directory."; cp -R $POLICY_FOLDER .; } || { echo "Error: Directory $POLICY_FOLDER does not exist."; exit 1; }
 
 echo Pushing gcp policies to GSR
