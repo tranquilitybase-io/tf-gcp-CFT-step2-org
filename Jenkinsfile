@@ -6,7 +6,7 @@ pipeline {
         }
     }
     environment {
-       def org_params = "${$org_params}"
+       def org_params = "${org_params}"
        def cicd_project = "${cicd_project}"
 
         
