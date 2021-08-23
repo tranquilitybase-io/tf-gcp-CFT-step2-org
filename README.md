@@ -9,11 +9,7 @@
      * [Prerequisites](#prerequisites)
      * [The Deployment Process (Overview)](#the-deployment-process-overview)
      * [Roles and Required Access](#roles-and-access)
-     * [0-bootstrap](#0-bootstrap)
      * [1-org](#1-org)
-     * [2-environment](#2-environment)
-     * [3-network](#3-network)
- 
          
  
 
@@ -54,55 +50,28 @@
 
 
 
-## 0-bootstrap
-This repo is part of a multi-part guide that shows how to configure and deploy the example.com reference architecture described in Google Cloud security foundations guide (PDF). 
-
-### Instructions: 
-
-	git clone https://github.com/tranquilitybase-io/tf-gcp-CFT-architecture.git
-	
-	cd ./tf-gcp-CFT-architecture/scripts/bootstrap
-	
-Edit the file called "terraform.example.tfvars"	
-Rename the file "terraform.example.tfvars" to "terraform.tfvars"
-
-	cd ../..
-	
-	make bootstrap
-	
-Go to the folder:
-	
-	tf-gcp-CFT-architecture/bootstrap/terraform-example-foundation/0-bootstrap$
-
-Note the email address of the admin. You need this address in a later procedure. under which folder?
-
-	 terraform output terraform_service_account
 
 ## 1-org
 
-This repo is part of a multi-part guide that shows how to configure and deploy the example.com reference architecture described in Google Cloud security foundations guide (PDF). 
 
 ### Instructions: 
 
-    cd ./tf-gcp-CFT-architecture/scripts/bootstrap
-	
-Edit the file called "terraform.example.tfvars"	 with your project information
+1. Change into org script folder.
+   ```
+   cd ./tf-gcp-CFT-architecture/scripts/1-org
+   ```
+1. Rename `terraform.example.tfvars` to `terraform.tfvars` and update the file with values from your environment.
 
-Rename the file "terraform.example.tfvars" to "terraform.tfvars"
+1. Rename `env-variables-example.sh` to `env-variables.sh` and update the file with the project id of the cicd project created within the bootstrap step.
 
-    mv terraform.example.tfvars terraform.tfvars
-
-Edit the file called "env-variables-example.sh" and rename the file "env-variables-example.sh" to env-variables.sh 
-
-In "export CLOUD_BUILD_PROJECT_ID=<project_id>"
-Use the project id of the CI/CD ex (prj-b-cicd-xxxx)
-
-   	mv env-variables-example.sh env-variables.sh
-	
-Run org.sh
-
-	cd ../..
-	make org
+1. Change back into root `./tf-gcp-CFT-architecture` directory.
+   ```
+   cd ..
+   ```
+1. Execute org script.
+   ```
+   make org
+   ```
 
 
 
